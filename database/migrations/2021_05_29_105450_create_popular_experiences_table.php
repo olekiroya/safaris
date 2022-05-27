@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePopularExperiencesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('popular_experiences', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('experience_name')->nullable();
+            $table->string('descriptions')->nullable();
+            $table->string('category')->nullable();
+            $table->string('attachment')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('popular_experiences');
+    }
+}
